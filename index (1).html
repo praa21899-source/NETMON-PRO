@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#10182d">
+<title>Sampai Jumpa, di Cerita yang Berbeda</title>
+<style>
+:root{--navy:#10182d;--blue:#243b65;--cream:#fffaf5;--pink:#f2c9d2;--muted:#b9c2d5}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--navy);color:var(--cream);font-family:Georgia,'Times New Roman',serif;line-height:1.75}
+.hero{min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;padding:35px 22px;position:relative;overflow:hidden;background:radial-gradient(ellipse at 50% 15%,#344b78 0%,#182642 42%,#10182d 78%)}
+.hero:before,.hero:after{content:"✦";position:absolute;color:#f2c9d2;opacity:.55;font-size:22px;animation:twinkle 3s infinite alternate}
+.hero:before{top:18%;left:13%}.hero:after{right:14%;bottom:22%;animation-delay:1.2s}
+@keyframes twinkle{to{opacity:.15;transform:scale(.7)}}
+.hero-inner{max-width:650px;position:relative;z-index:1}
+.eyebrow{font:11px Arial,sans-serif;letter-spacing:4px;text-transform:uppercase;color:var(--pink)}
+h1{font-size:clamp(38px,10vw,68px);line-height:1.12;font-weight:normal;margin:22px 0}
+.hero p{color:var(--muted);font-size:16px;max-width:470px;margin:0 auto 30px}
+.btn{display:inline-block;padding:12px 24px;border:1px solid var(--pink);border-radius:30px;color:var(--cream);text-decoration:none;font:12px Arial,sans-serif;letter-spacing:1.5px;transition:.2s}
+.btn:hover{background:var(--pink);color:var(--navy)}
+section{padding:76px 22px;max-width:760px;margin:auto}
+.kicker{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--pink);text-transform:uppercase}
+h2{font-size:clamp(29px,7vw,42px);font-weight:normal;line-height:1.2;margin:12px 0 22px}
+p{color:#d4d9e4}
+.music{background:#192640;border:1px solid #354664;border-radius:18px;padding:22px;margin-top:25px}
+.music strong{display:block;font-size:20px;font-weight:normal}
+.music small{color:var(--muted);font:12px Arial,sans-serif}
+.music a{margin-top:15px}
+.letter{background:var(--cream);color:#26324a;border-radius:4px;padding:clamp(24px,6vw,44px);margin-top:25px;box-shadow:0 18px 50px #080e1d66}
+.letter p{color:#45516a}
+.letter .sign{font-style:italic;color:#26324a;margin-top:30px}
+.memory-grid{display:grid;grid-template-columns:1fr;gap:13px;margin-top:25px}
+.memory{padding:20px;border:1px solid #354664;border-radius:14px;background:#17233b}
+.memory .symbol{font-size:23px;color:var(--pink)}
+.memory h3{font-weight:normal;font-size:19px;margin:5px 0}
+.memory p{font-size:14px;margin:0}
+.quote{text-align:center;padding:80px 24px;background:linear-gradient(135deg,#263b61,#18233b)}
+.quote blockquote{font-size:clamp(23px,6vw,34px);line-height:1.45;max-width:620px;margin:18px auto}
+footer{text-align:center;padding:35px 20px 55px;color:#8995ac;font:11px Arial,sans-serif;letter-spacing:1px}
+.heart{color:var(--pink)}
+@media(min-width:600px){.memory-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Untuk seseorang yang pernah menjadi cerita</div>
+    <h1>Sampai Jumpa,<br><i>di Cerita yang Berbeda.</i></h1>
+    <p>Ada pertemuan yang singkat, tetapi kenangannya memilih tinggal lebih lama.</p>
+    <a class="btn" href="#surat">Buka surat kecil ini ↓</a>
+  </div>
+</header>
+
+<section id="surat">
+  <div class="kicker">Sebuah pesan yang belum sempat disampaikan</div>
+  <h2>Untuk kamu,<br>yang pernah aku kagumi.</h2>
+  <p>Mungkin masa magang sudah selesai. Hari-hari yang dulu terasa biasa, sekarang justru menjadi kenangan yang ingin diulang sekali lagi.</p>
+  <div class="letter">
+    <p>Hai, kamu.</p>
+    <p>Aku nggak tahu apakah kamu pernah menyadarinya, tapi di antara banyak hal yang aku temui selama magang, mengenal kamu adalah salah satu hal yang paling berkesan.</p>
+    <p>Mungkin buat kamu, semuanya hanya hari-hari biasa. Tapi buat aku, ada momen sederhana yang diam-diam jadi sesuatu yang berarti. Senyummu, obrolan singkat, dan kehadiranmu pernah membuat hari-hari magang terasa lebih menyenangkan.</p>
+    <p>Sekarang semuanya sudah selesai. Kita kembali ke jalan masing-masing, dan mungkin setelah ini nggak ada lagi kesempatan untuk bertemu seperti dulu.</p>
+    <p>Aku nggak menulis ini untuk meminta apa-apa. Aku cuma ingin bilang terima kasih. Terima kasih sudah pernah menjadi bagian kecil dari cerita magangku.</p>
+    <p>Kalau suatu hari kita bertemu lagi, semoga kita masih bisa saling menyapa. Dan kalau ternyata tidak, semoga kamu selalu bahagia dengan jalan yang kamu pilih.</p>
+    <p class="sign">Seseorang yang pernah diam-diam mengagumimu. <span class="heart">♥</span></p>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Musik kenangan</div>
+  <h2>Ada lagu yang mengingatkanku.</h2>
+  <p>Beberapa perasaan memang lebih mudah disampaikan lewat lagu.</p>
+  <div class="music">
+    <strong>Breakeven</strong>
+    <small>The Script · Musik kenangan</small><br>
+    <a class="btn" href="https://open.spotify.com/search/Breakeven%20The%20Script" target="_blank" rel="noopener">Dengarkan di Spotify ↗</a>
+  </div>
+</section>
+
+<section>
+  <div class="kicker">Hal-hal sederhana yang akan diingat</div>
+  <h2>Bukan tentang berapa lama,<br>tapi tentang pernah ada.</h2>
+  <div class="memory-grid">
+    <article class="memory"><div class="symbol">✧</div><h3>Pertemuan</h3><p>Awalnya hanya bertemu seperti biasa, tanpa tahu akan menjadi kenangan.</p></article>
+    <article class="memory"><div class="symbol">♡</div><h3>Hal sederhana</h3><p>Obrolan singkat dan momen kecil yang ternyata berarti.</p></article>
+    <article class="memory"><div class="symbol">☾</div><h3>Waktu yang berlalu</h3><p>Tidak terasa, masa magang yang dulu dijalani bersama akhirnya selesai.</p></article>
+    <article class="memory"><div class="symbol">✦</div><h3>Doa dari jauh</h3><p>Semoga langkahmu setelah ini selalu dipenuhi hal-hal baik.</p></article>
+  </div>
+</section>
+
+<div class="quote">
+  <div class="kicker">Sebelum cerita ini selesai</div>
+  <blockquote>“Mungkin kita tidak ditakdirkan untuk bertemu setiap hari, tetapi aku bersyukur pernah dipertemukan denganmu.”</blockquote>
+  <p>Terima kasih sudah menjadi bagian dari cerita ini.</p>
+  <span class="heart">♥</span>
+</div>
+
+<footer>
+  DIBUAT DENGAN TULUS · UNTUK KENANGAN MAGANG<br><br>
+  <span class="heart">♥</span> Semoga bahagia, di mana pun kamu berada.
+</footer>
+</body>
+</html>
