@@ -24,10 +24,6 @@ section{padding:76px 22px;max-width:760px;margin:auto}
 .kicker{font:10px Arial,sans-serif;letter-spacing:3px;color:var(--pink);text-transform:uppercase}
 h2{font-size:clamp(29px,7vw,42px);font-weight:normal;line-height:1.2;margin:12px 0 22px}
 p{color:#d4d9e4}
-.music{background:#192640;border:1px solid #354664;border-radius:18px;padding:22px;margin-top:25px}
-.music strong{display:block;font-size:20px;font-weight:normal}
-.music small{color:var(--muted);font:12px Arial,sans-serif}
-.music a{margin-top:15px}
 .letter{background:var(--cream);color:#26324a;border-radius:4px;padding:clamp(24px,6vw,44px);margin-top:25px;box-shadow:0 18px 50px #080e1d66}
 .letter p{color:#45516a}
 .letter .sign{font-style:italic;color:#26324a;margin-top:30px}
@@ -41,6 +37,19 @@ p{color:#d4d9e4}
 footer{text-align:center;padding:35px 20px 55px;color:#8995ac;font:11px Arial,sans-serif;letter-spacing:1px}
 .heart{color:var(--pink)}
 @media(min-width:600px){.memory-grid{grid-template-columns:1fr 1fr}}
+
+/* Gaya Pemutar Musik Ala Spotify */
+.sp-player{background:#121212;border-radius:16px;padding:18px;margin-top:25px;border:1px solid #282828;font-family:Arial,sans-serif}
+.sp-top{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.sp-info{display:flex;align-items:center;gap:14px}
+.sp-art{width:52px;height:52px;border-radius:8px;background:linear-gradient(135deg,#1db954,#191414);display:flex;align-items:center;justify-content:center;font-size:22px;flex-shrink:0}
+.sp-title{color:#ffffff;font-weight:bold;font-size:16px;display:block;margin-bottom:3px}
+.sp-artist{color:#b3b3b3;font-size:12px;display:block}
+.sp-play{width:46px;height:46px;border-radius:50%;background:#1db954;border:none;color:#000000;font-size:16px;font-weight:bold;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .15s}
+.sp-play:active{transform:scale(0.92)}
+.sp-bar-wrap{margin-top:16px}
+.sp-progress{width:100%;accent-color:#1db954;height:4px;cursor:pointer}
+.sp-time{display:flex;justify-content:space-between;color:#b3b3b3;font-size:11px;margin-top:6px}
 </style>
 </head>
 <body>
@@ -70,13 +79,27 @@ footer{text-align:center;padding:35px 20px 55px;color:#8995ac;font:11px Arial,sa
 
 <section>
   <div class="kicker">Musik kenangan</div>
-  <div class="music">
-    <strong>Pengagum Rahasia</strong>
-    <small>Detik · Musik kenangan</small>
-    <audio controls style="width: 100%; margin-top: 16px;">
-      <source src="Pengagum Rahasia - Detik _ Lirik Lagu [kKan9g-XPhA].mp3" type="audio/mpeg">
-      Browser Anda tidak mendukung pemutar audio.
-    </audio>
+  <div class="sp-player">
+    <div class="sp-top">
+      <div class="sp-info">
+        <div class="sp-art">🎵</div>
+        <div>
+          <span class="sp-title">Pengagum Rahasia</span>
+          <span class="sp-artist">Detik · Musik kenangan</span>
+        </div>
+      </div>
+      <button class="sp-play" id="spBtn" onclick="togglePlay()">▶</button>
+    </div>
+
+    <div class="sp-bar-wrap">
+      <input type="range" class="sp-progress" id="spSeek" value="0" min="0" step="1" oninput="seekAudio()">
+      <div class="sp-time">
+        <span id="spCur">0:00</span>
+        <span id="spDur">0:00</span>
+      </div>
+    </div>
+
+    <audio id="myAudio" src="Pengagum Rahasia - Detik _ Lirik Lagu [kKan9g-XPhA].mp3" preload="metadata"></audio>
   </div>
 </section>
 
@@ -102,6 +125,48 @@ footer{text-align:center;padding:35px 20px 55px;color:#8995ac;font:11px Arial,sa
   DIBUAT DENGAN TULUS · UNTUK KENANGAN MAGANG<br><br>
   <span class="heart">♥</span> Semoga bahagia, di mana pun kamu berada.
 </footer>
+
+<script>
+  const audio = document.getElementById("myAudio");
+  const btn = document.getElementById("spBtn");
+  const seek = document.getElementById("spSeek");
+  const cur = document.getElementById("spCur");
+  const dur = document.getElementById("spDur");
+
+  function formatTime(s) {
+    if (isNaN(s)) return "0:00";
+    const m = Math.floor(s / 60);
+    const sec = Math.floor(s % 60);
+    return m + ":" + (sec < 10 ? "0" : "") + sec;
+  }
+
+  audio.onloadedmetadata = () => {
+    seek.max = Math.floor(audio.duration);
+    dur.textContent = formatTime(audio.duration);
+  };
+
+  audio.ontimeupdate = () => {
+    seek.value = Math.floor(audio.currentTime);
+    cur.textContent = formatTime(audio.currentTime);
+  };
+
+  audio.onended = () => {
+    btn.textContent = "▶";
+  };
+
+  function togglePlay() {
+    if (audio.paused) {
+      audio.play();
+      btn.textContent = "❚❚";
+    } else {
+      audio.pause();
+      btn.textContent = "▶";
+    }
+  }
+
+  function seekAudio() {
+    audio.currentTime = seek.value;
+  }
+</script>
 </body>
   </html>
-
